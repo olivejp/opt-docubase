@@ -1,0 +1,73 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.5.RELEASE"
+    id "maven-publish"
+}
+
+ext { springBootVersion = '2.0.5.RELEASE' }
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+jar {
+    version = "0.0.1-SNAPSHOT"
+    baseName = 'opt-docubase'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'nc.opt'
+            artifactId = 'docubase'
+            version = '0.0.1-SNAPSHOT'
+
+            from components.java
+
+            pom {
+                name = 'OPT-Docubase library'
+                description = 'Library to interact with Docubase'
+                url = 'http://www.opt.nc/libraries'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = '2761oli'
+                        name = 'Jean-Paul OLIVE'
+                        email = 'jean-paul.olive@opt.nc'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/olivejp/opt-docubase'
+                    connection = 'scm:git@github.com:olivejp/opt-docubase.git'
+                    developerConnection = 'scm:git@github.com:olivejp/opt-docubase.git'
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('junit:junit:4.12')
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
