@@ -16,10 +16,11 @@ apply plugin: 'maven'
 
 jar {
     version = "0.0.1-SNAPSHOT"
-    baseName = 'opt-docubase'
+    baseName = 'opt-configuration'
 }
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenLocal()
@@ -30,7 +31,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'nc.opt'
-            artifactId = 'docubase'
+            artifactId = 'configuration'
             version = '0.0.1-SNAPSHOT'
 
             from components.java
@@ -53,9 +54,9 @@ publishing {
                     }
                 }
                 scm {
-                    url = 'https://github.com/olivejp/opt-docubase'
-                    connection = 'scm:git@github.com:olivejp/opt-docubase.git'
-                    developerConnection = 'scm:git@github.com:olivejp/opt-docubase.git'
+                    url = 'https://github.com/olivejp/opt-configuration'
+                    connection = 'scm:git@github.com:olivejp/opt-configuration.git'
+                    developerConnection = 'scm:git@github.com:olivejp/opt-configuration.git'
                 }
             }
         }
@@ -64,6 +65,8 @@ publishing {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter')
+    implementation('org.springframework.boot:spring-boot-autoconfigure')
+    implementation('org.springframework.boot:spring-boot-starter-web')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation('junit:junit:4.12')
 }

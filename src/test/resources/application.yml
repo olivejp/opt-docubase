@@ -1,3 +1,6 @@
 opt:
   docubase:
-    url: "nc.oliweb"
+    enabled: "true"
+    url: "https://docubasetest.intranet.opt/"
+    urlUserSession: "rest/api/usersession/basemanager/"
+    urlFactory: "rest/api/factory/"
