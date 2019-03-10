@@ -1,6 +1,8 @@
 opt:
   docubase:
-    enabled: "true"
-    url: "https://docubasetest.intranet.opt/"
-    urlUserSession: "rest/api/usersession/basemanager/"
-    urlFactory: "rest/api/factory/"
+    profile: "_admin"
+    password: "password"
+    host: "https://docubasetest.intranet.opt/"
+    restApiSegment: "serviceweb/rest/api/"
+    conectionTiemout: 6000
+    readTimeout: 6000

@@ -5,40 +5,58 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "opt.docubase", ignoreUnknownFields = false)
 public class DocubaseProperties {
 
-    private boolean enabled;
-    private String url;
-    private String urlUserSession;
-    private String urlFactory;
+    private String profile;
+    private String password;
+    private String host;
+    private String restApiSegment;
+    private String connectionTimeout;
+    private String readTimeout;
 
-    public boolean isEnabled() {
-        return enabled;
+    public String getProfile() {
+        return profile;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 
-    public String getUrl() {
-        return url;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getUrlUserSession() {
-        return urlUserSession;
+    public String getHost() {
+        return host;
     }
 
-    public void setUrlUserSession(String urlUserSession) {
-        this.urlUserSession = urlUserSession;
+    public void setHost(String host) {
+        this.host = host;
     }
 
-    public String getUrlFactory() {
-        return urlFactory;
+    public String getRestApiSegment() {
+        return restApiSegment;
     }
 
-    public void setUrlFactory(String urlFactory) {
-        this.urlFactory = urlFactory;
+    public void setRestApiSegment(String restApiSegment) {
+        this.restApiSegment = restApiSegment;
+    }
+
+    public String getConnectionTimeout() {
+        return connectionTimeout;
+    }
+
+    public void setConnectionTimeout(String connectionTimeout) {
+        this.connectionTimeout = connectionTimeout;
+    }
+
+    public String getReadTimeout() {
+        return readTimeout;
+    }
+
+    public void setReadTimeout(String readTimeout) {
+        this.readTimeout = readTimeout;
     }
 }
