@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FactoryServiceImpl implements FactoryService {
 
+    private static final String PATH_FACTORY = "factory";
+
     private RestTemplate restTemplate;
     private DocubaseProperties docubaseProperties;
 

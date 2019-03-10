@@ -15,6 +15,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 public class UserSessionServiceImpl implements UserSessionService {
 
+    private static final String PATH_USER_SESSION = "usersession";
+
     private RestTemplate restTemplate;
     private DocubaseProperties docubaseProperties;
 
