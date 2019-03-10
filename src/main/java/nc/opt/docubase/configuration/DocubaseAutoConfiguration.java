@@ -26,14 +26,14 @@ public class DocubaseAutoConfiguration {
     }
 
     @Bean
-    @ConditionalOnProperty(value = {"connect.timeout", "read.timeout"})
-    public ClientHttpRequestFactory createClientHttpFactory(@Value("connect.timeout") int connectTimeout,
-                                                            @Value("read.timeout") int readTimeout) {
+    @ConditionalOnProperty(prefix = "opt.docubase", value = {"connect.timeout", "read.timeout"})
+    public ClientHttpRequestFactory createClientHttpFactory(@Value("opt.docubase.connect.timeout") int connectTimeout,
+                                                            @Value("opt.docubase.read.timeout") int readTimeout) {
         SimpleClientHttpRequestFactory clientHttpRequestFactory = new SimpleClientHttpRequestFactory();
         clientHttpRequestFactory.setReadTimeout(readTimeout);
         clientHttpRequestFactory.setConnectTimeout(connectTimeout);
 
-        // Put to false when dealing with big data in POST or PUT request
+        // false when dealing with big data in POST or PUT request
         clientHttpRequestFactory.setBufferRequestBody(false);
         return clientHttpRequestFactory;
     }
