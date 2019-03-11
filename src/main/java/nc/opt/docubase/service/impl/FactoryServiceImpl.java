@@ -8,6 +8,7 @@ import nc.opt.docubase.service.FactoryService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,7 +19,7 @@ public class FactoryServiceImpl implements FactoryService {
     private RestTemplate restTemplate;
     private DocubaseProperties docubaseProperties;
 
-    public FactoryServiceImpl(DocubaseProperties docubaseProperties) {
+    public FactoryServiceImpl(DocubaseProperties docubaseProperties, RestOperations restTemplate) {
         this.docubaseProperties = docubaseProperties;
         this.restTemplate = new RestTemplate();
     }

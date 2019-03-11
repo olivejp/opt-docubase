@@ -2,7 +2,6 @@ package nc.opt.docubase.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "opt.docubase", ignoreUnknownFields = false)
 public class DocubaseProperties {
 
     private String profile;

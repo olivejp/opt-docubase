@@ -7,9 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface UserSessionService {
-    ResponseEntity<GetDocumentResponse> getDocumentByGedId(String domainId, String baseId, String gedId);
+    GetDocumentResponse getDocumentByGedId(String domainId, String baseId, String gedId);
 
-    ResponseEntity<PostDocumentResponse> postDocument(MultipartFile file, String domainId, String baseId, PostDocument postDocument);
-
-    String getUrlDomain();
+    PostDocumentResponse postDocument(MultipartFile file, String domainId, String baseId, PostDocument postDocument);
 }
