@@ -15,7 +15,7 @@ import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@ConditionalOnProperty(prefix = "opt.docubase")
+@ConditionalOnProperty(value = "opt.docubase", havingValue = "")
 public class DocubaseAutoConfiguration {
 
     @Bean
@@ -24,13 +24,13 @@ public class DocubaseAutoConfiguration {
         return new DocubaseProperties();
     }
 
+    // TODO mettre la declaration du  restTemplate directement dans les services FactoryService et UserSessionService
     @Bean(name = "docubaseRestTemplate")
-    @ConditionalOnProperty(prefix = "opt.docubase", value = {"connect.timeout", "read.timeout"})
-    public RestOperations restTemplate(@Value("opt.docubase.connect.timeout") int connectTimeout,
-                                       @Value("opt.docubase.read.timeout") int readTimeout) {
+    public RestOperations restTemplate(@Value("${opt.docubase.connect.timeout:2000}") String connectTimeout,
+                                       @Value("${opt.docubase.read.timeout:2000}") String readTimeout) {
         SimpleClientHttpRequestFactory clientHttpRequestFactory = new SimpleClientHttpRequestFactory();
-        clientHttpRequestFactory.setReadTimeout(readTimeout);
-        clientHttpRequestFactory.setConnectTimeout(connectTimeout);
+        clientHttpRequestFactory.setReadTimeout(Integer.valueOf(readTimeout));
+        clientHttpRequestFactory.setConnectTimeout(Integer.valueOf(connectTimeout));
 
         // false when dealing with big data in POST or PUT request
         clientHttpRequestFactory.setBufferRequestBody(false);

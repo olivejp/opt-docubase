@@ -6,13 +6,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.util.UriComponentsBuilder;
 
-public abstract class AbstractDocubaseServiceImpl {
+abstract class AbstractDocubaseServiceImpl {
 
-    protected HttpEntity entity;
-    protected RestOperations restTemplate;
-    protected DocubaseProperties properties;
+    HttpEntity entity;
+    RestOperations restTemplate;
+    private DocubaseProperties properties;
 
-    public AbstractDocubaseServiceImpl(DocubaseProperties docubaseProperties, RestOperations restTemplate) {
+    AbstractDocubaseServiceImpl(DocubaseProperties docubaseProperties, RestOperations restTemplate) {
         this.restTemplate = restTemplate;
         this.properties = docubaseProperties;
 
@@ -21,7 +21,7 @@ public abstract class AbstractDocubaseServiceImpl {
         entity = new HttpEntity<>("parameters", headers);
     }
 
-    protected UriComponentsBuilder getUriBuilder() {
+    UriComponentsBuilder getUriBuilder() {
         return UriComponentsBuilder.fromHttpUrl(properties.getHost()).path(properties.getRestApiSegment());
     }
 }
