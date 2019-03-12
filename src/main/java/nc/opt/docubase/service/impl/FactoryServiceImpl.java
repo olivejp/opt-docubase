@@ -12,22 +12,12 @@ import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
-public class FactoryServiceImpl implements FactoryService {
+public class FactoryServiceImpl extends AbstractDocubaseServiceImpl implements FactoryService {
 
     private static final String PATH_FACTORY = "factory";
 
-    private RestTemplate restTemplate;
-    private DocubaseProperties docubaseProperties;
-
-    public FactoryServiceImpl(DocubaseProperties docubaseProperties, RestOperations restTemplate) {
-        this.docubaseProperties = docubaseProperties;
-        this.restTemplate = new RestTemplate();
-    }
-
-    private HttpEntity<String> getHttpEntity() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("X-db-connectAs", "");
-        return new HttpEntity<>("parameters", headers);
+    public FactoryServiceImpl(DocubaseProperties docubaseProperties) {
+        super(docubaseProperties);
     }
 
     @Override

@@ -14,9 +14,8 @@ public class UserSessionServiceImpl extends AbstractDocubaseServiceImpl implemen
 
     private static final String PATH_USER_SESSION = "usersession";
 
-
-    public UserSessionServiceImpl(DocubaseProperties docubaseProperties, RestOperations restTemplate) {
-        super(docubaseProperties, restTemplate);
+    public UserSessionServiceImpl(DocubaseProperties docubaseProperties) {
+        super(docubaseProperties);
     }
 
     @Override
