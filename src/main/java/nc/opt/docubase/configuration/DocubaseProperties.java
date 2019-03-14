@@ -2,12 +2,21 @@ package nc.opt.docubase.configuration;
 
 public class DocubaseProperties {
 
+    private boolean enabled;
     private String profile;
     private String password;
     private String host;
     private String restApiSegment;
     private String connectionTimeout;
     private String readTimeout;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public String getProfile() {
         return profile;

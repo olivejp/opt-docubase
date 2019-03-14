@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@ConditionalOnProperty(value = "opt.docubase")
+@ConditionalOnProperty(value = "opt.docubase.enabled", havingValue = "true")
 public class DocubaseAutoConfiguration {
 
     @Bean
