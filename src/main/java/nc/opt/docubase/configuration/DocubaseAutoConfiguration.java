@@ -30,7 +30,7 @@ public class DocubaseAutoConfiguration {
     }
 
     @Bean
-    public UserSessionService docubaseService(DocubaseProperties properties) {
+    public UserSessionService userSessionService(DocubaseProperties properties) {
         return new UserSessionServiceImpl(properties);
     }
 

@@ -1,8 +1,8 @@
 package nc.opt.docubase.service.impl;
 
 import nc.opt.docubase.configuration.DocubaseAutoConfiguration;
+import nc.opt.docubase.domain.builder.RequestBuilder;
 import nc.opt.docubase.service.UserSessionService;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +21,9 @@ public class UserSessionServiceTest {
 
     @Test
     public void contextLoads() {
+        RequestBuilder requestBuilder = new RequestBuilder();
+        requestBuilder.idDomain("123").idBase("456").idDocument("789");
+
     }
 
     @SpringBootApplication()
